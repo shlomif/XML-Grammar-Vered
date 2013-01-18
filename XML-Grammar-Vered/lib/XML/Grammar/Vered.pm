@@ -20,7 +20,7 @@ has '+rng_schema_basename' => (default => 'vered-xml.rng');
 
 
 has '+to_docbook_xslt_transform_basename' =>
-    (docbook => 'vered-xml-to-docbook.xslt');
+    (default => 'vered-xml-to-docbook.xslt');
 
 has '_mode' => (is => 'rw', init_arg => 'mode');
 has '_output_mode' => (is => 'rw', init_arg => 'output_mode',);
