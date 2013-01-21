@@ -10,7 +10,7 @@ use MooX qw/late/;
 use XML::GrammarBase::Role::RelaxNG v0.1.5;
 use XML::GrammarBase::Role::XSLT v0.1.5;
 
-our $VERSION = '0.0.1';
+our $VERSION = '0.0.2';
 
 with ('XML::GrammarBase::Role::RelaxNG');
 with XSLT(output_format => 'docbook');
