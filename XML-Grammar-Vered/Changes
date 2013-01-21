@@ -1,4 +1,7 @@
 Revision history for XML-Grammar-Vered
 
+v0.0.2  2013-01-21
+    - Add t/00-libxml-basic.t and t/00-libxslt-basic.t .
+
 v0.0.1  2013-01-18
     - First version, released on an unsuspecting world
