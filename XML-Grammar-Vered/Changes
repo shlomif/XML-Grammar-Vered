@@ -1,5 +1,8 @@
 Revision history for XML-Grammar-Vered
 
+v0.0.3  2013-01-23
+    - Add minimal dependency on v0.2.1 on XML-GrammarBase.
+
 v0.0.2  2013-01-21
     - Add t/00-libxml-basic.t and t/00-libxslt-basic.t .
 
