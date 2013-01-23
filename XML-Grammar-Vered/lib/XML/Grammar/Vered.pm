@@ -7,8 +7,8 @@ use autodie;
 
 use MooX qw/late/;
 
-use XML::GrammarBase::Role::RelaxNG v0.1.5;
-use XML::GrammarBase::Role::XSLT v0.1.5;
+use XML::GrammarBase::Role::RelaxNG v0.2.1;
+use XML::GrammarBase::Role::XSLT v0.2.1;
 
 our $VERSION = '0.0.2';
 
