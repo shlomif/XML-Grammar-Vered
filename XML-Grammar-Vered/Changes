@@ -1,5 +1,8 @@
 Revision history for XML-Grammar-Vered
 
+v0.0.4  2013-02-20
+    - Add MANIFEST.SKIP and got rid of packed-up temporary files (*~).
+
 v0.0.3  2013-01-23
     - Add minimal dependency on v0.2.1 on XML-GrammarBase.
 
