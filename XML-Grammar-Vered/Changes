@@ -1,5 +1,9 @@
 Revision history for XML-Grammar-Vered
 
+    - Get rid of Makefile.PL.
+        - It doesn't handle three digit version ("vX.Y.Z")
+        dependencies too well.
+
 v0.0.4  2013-02-20
     - Add MANIFEST.SKIP and got rid of packed-up temporary files (*~).
 
