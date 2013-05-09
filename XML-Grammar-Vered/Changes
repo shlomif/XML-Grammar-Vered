@@ -3,6 +3,8 @@ Revision history for XML-Grammar-Vered
     - Get rid of Makefile.PL.
         - It doesn't handle three digit version ("vX.Y.Z")
         dependencies too well.
+    - Add minimal dependency on v0.2.2 on XML-GrammarBase.
+        - To fix test failures due to old and broken libxml2 versions.
 
 v0.0.4  2013-02-20
     - Add MANIFEST.SKIP and got rid of packed-up temporary files (*~).
