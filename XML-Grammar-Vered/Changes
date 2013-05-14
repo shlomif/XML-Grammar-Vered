@@ -1,5 +1,9 @@
 Revision history for XML-Grammar-Vered
 
+v0.0.6
+    - Rename the example away from "bad-elements" to avoid confusion:
+        - http://www.nntp.perl.org/group/perl.cpan.testers.discuss/2013/05/msg3139.html
+
 v0.0.5  2013-05-09
     - Get rid of Makefile.PL.
         - It doesn't handle three digit version ("vX.Y.Z")

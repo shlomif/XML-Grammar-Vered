@@ -175,10 +175,10 @@ test_file(
     {
         output_format => 'docbook',
         input_fn => File::Spec->catfile(
-            File::Spec->curdir(), "t", "data", "system-tests-1", "input-xml", "bad-elements.xml-grammar-vered.xml",
+            File::Spec->curdir(), "t", "data", "system-tests-1", "input-xml", "perl-begin-page.xml-grammar-vered.xml",
         ),
         output_fn => File::Spec->catfile(
-            File::Spec->curdir(), "t", "data", "system-tests-1", "expected-docbook", "bad-elements.docbook.xml",
+            File::Spec->curdir(), "t", "data", "system-tests-1", "expected-docbook", "perl-begin-page.docbook.xml",
         ),
     }
 );
