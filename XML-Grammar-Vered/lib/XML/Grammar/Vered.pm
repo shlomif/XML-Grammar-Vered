@@ -3,6 +3,8 @@ package XML::Grammar::Vered;
 use strict;
 use warnings;
 
+use 5.008;
+
 use autodie;
 
 use MooX qw/late/;
