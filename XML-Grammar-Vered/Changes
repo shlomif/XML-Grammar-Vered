@@ -1,5 +1,11 @@
 Revision history for XML-Grammar-Vered
 
+v0.0.8  2014-01-02
+    - Fix the double =encoding directive in the POD. It confused MetaCPAN:
+        - https://github.com/CPAN-API/metacpan-web/issues/1051#issuecomment-33903716
+        - Fixed by replacing "-Encoding" in weaver.ini to "-SingleEncoding"
+        - Thanks to ether on #dist-zilla
+
 v0.0.7  2014-01-02
     - META.yml provides and minimal perl version (CPANTS).
     - Add a test for trailing space.
