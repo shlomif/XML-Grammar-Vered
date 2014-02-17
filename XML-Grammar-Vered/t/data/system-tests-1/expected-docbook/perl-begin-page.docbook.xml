@@ -60,14 +60,14 @@ All modern Perl code should have the "use strict;" and "use warnings;" pragmas
 that prevent or warn against misspelling variable names, using undefined
 values, and other bad practices. So start your code (in every file) with this:
 </db:para>
-      <db:programlisting xml:space="preserve" language="perl">
+      <db:programlisting language="perl">
 use strict;
 use warnings;
 </db:programlisting>
       <db:para>
 Or:
 </db:para>
-      <db:programlisting xml:space="preserve" language="perl">
+      <db:programlisting language="perl">
 package MyModule;
 use strict;
 use warnings;
@@ -81,14 +81,14 @@ use warnings;
 <db:link xlink:href="http://perldoc.perl.org/functions/open.html">The open function</db:link>
 is used to open files, sub-processes, etc. The correct style for it is:
 </db:para>
-      <db:programlisting xml:space="preserve" language="perl">
+      <db:programlisting language="perl">
 open my $input_fh, "&lt;", $input_filename
     or die "Could not open '$input_filename' - $!";
 </db:programlisting>
       <db:para>
 some <db:emphasis role="bold">wrong</db:emphasis>, insecure and/or outdated styles are:
 </db:para>
-      <db:programlisting xml:space="preserve" role="bad_code" language="perl"># Bad code
+      <db:programlisting role="bad_code" language="perl"># Bad code
 
 
 # Bareword filehandle (type glob), two arguments open (insecure) and no
@@ -127,19 +127,19 @@ Some people name their identifiers as several words all in lowercase and
 not separated by underscores ("_"). As a result, this makes the code harder
 to read. So instead of:
 </db:para>
-      <db:programlisting xml:space="preserve" language="perl">
+      <db:programlisting language="perl">
 my @namesofpresidents;
 </db:programlisting>
       <db:para>
 Say:
 </db:para>
-      <db:programlisting xml:space="preserve" language="perl">
+      <db:programlisting language="perl">
 my @names_of_presidents;
 </db:programlisting>
       <db:para>
 Or maybe:
 </db:para>
-      <db:programlisting xml:space="preserve" language="perl">
+      <db:programlisting language="perl">
 my @presidents_names;
 </db:programlisting>
     </db:section>
@@ -197,7 +197,7 @@ relevant page</db:link> on the Perl 5 Wiki.
       <db:para>
 Some people write code like the following:
 </db:para>
-      <db:programlisting xml:space="preserve" language="perl">
+      <db:programlisting language="perl">
 while (&lt;$my_fh&gt;)
 {
     my $line = $_;
@@ -207,7 +207,7 @@ while (&lt;$my_fh&gt;)
       <db:para>
 Or:
 </db:para>
-      <db:programlisting xml:space="preserve" language="perl">
+      <db:programlisting language="perl">
 foreach (@users)
 {
     my $user = $_;
@@ -218,7 +218,7 @@ foreach (@users)
 However, you can easily assign the explicit and lexical variables in the
 loop's opening line like so:
 </db:para>
-      <db:programlisting xml:space="preserve" language="perl">
+      <db:programlisting language="perl">
 while (my $line = &lt;$my_fh&gt;)
 {
     # Do something with $line…
@@ -227,7 +227,7 @@ while (my $line = &lt;$my_fh&gt;)
       <db:para>
 and:
 </db:para>
-      <db:programlisting xml:space="preserve" language="perl">
+      <db:programlisting language="perl">
 foreach my $user (@users)
 {
     # Process $user…
@@ -241,7 +241,7 @@ foreach my $user (@users)
       <db:para>
 Some people may be tempted to write this code:
 </db:para>
-      <db:programlisting xml:space="preserve" language="perl">
+      <db:programlisting language="perl">
 foreach my $line (&lt;$my_file_handle&gt;)
 {
     # Do something with $line.
@@ -253,7 +253,7 @@ file pointed by $my_file_handle into a (potentially long) list of lines, and
 then iterate over them. This is inefficient. In order to read one line
 at a time, use this instead:
 </db:para>
-      <db:programlisting xml:space="preserve" language="perl">
+      <db:programlisting language="perl">
 while (my $line = &lt;$my_file_handle&gt;)
 {
     # Do something with $line.
@@ -269,7 +269,7 @@ Perl has a flexible way to write strings and other delimiters, and you should
 utilize it for clarity. If you find yourself writing long strings, write them
 as <db:link xlink:href="http://en.wikipedia.org/wiki/Here_document">here-documents</db:link>:
 </db:para>
-      <db:programlisting xml:space="preserve" language="perl">
+      <db:programlisting language="perl">
 my $long_string_without_interpolation = &lt;&lt;'EOF';
 Hello there. I am a long string.
 I am part of the string.
@@ -299,7 +299,7 @@ by any arbitrary delimiter notation: <db:code>m{\A/home/sophie/perl}</db:code>,
 One can see several bad ways to read a file into memory in Perl. Among them
 are:
 </db:para>
-      <db:programlisting xml:space="preserve" language="perl">
+      <db:programlisting language="perl">
 # Not portable and suffers from possible
 # shell code injection.
 my $contents = `cat $filename`;
@@ -319,7 +319,7 @@ into a long string is to either use CPAN distributions for that such as
 <db:link role="cpan_dist" xlink:href="http://metacpan.org/release/IO-All">IO-All</db:link>, or alternatively
 write down the following function and use it:
 </db:para>
-      <db:programlisting xml:space="preserve" language="perl">
+      <db:programlisting language="perl">
 sub _slurp
 {
     my $filename = shift;
@@ -363,7 +363,7 @@ to use the lower-level API which is not recommended.
 The first thing to know about handling arguments for subroutines is to avoid
 referring to them directly by index. Imagine you have the following code:
 </db:para>
-      <db:programlisting xml:space="preserve" language="perl">
+      <db:programlisting language="perl">
 sub my_function
 {
     my $first_name = $_[0];
@@ -385,7 +385,7 @@ miss some indexes.
       <db:para>
 Instead do either:
 </db:para>
-      <db:programlisting xml:space="preserve" language="perl">
+      <db:programlisting language="perl">
 sub my_function
 {
     my $first_name = shift;
@@ -400,7 +400,7 @@ sub my_function
       <db:para>
 Or:
 </db:para>
-      <db:programlisting xml:space="preserve" language="perl">
+      <db:programlisting language="perl">
 sub my_function
 {
     my ($first_name, $street, $city, $country) = @_;
@@ -426,7 +426,7 @@ Often people ask how to pass arrays or hashes to subroutines. The answer is
 that the right way to do it is to pass them as a reference as an argument
 to the subroutine:
 </db:para>
-        <db:programlisting xml:space="preserve" language="perl">
+        <db:programlisting language="perl">
 sub calc_polynomial
 {
     my ($x, $coefficients) = @_;
@@ -461,7 +461,7 @@ if you have too many optional parameters, make sure you convert it to use
 named arguments. The standard way to do it is to pass a hash reference or
 a hash of arguments to the subroutine:
 </db:para>
-        <db:programlisting xml:space="preserve" language="perl">
+        <db:programlisting language="perl">
 sub send_email
 {
     my $args = shift;
@@ -528,7 +528,7 @@ intermediate components thereof should always start with an uppercase letter,
 because modules and packages that start with a lowercase letter are
 reserved for pragmas. So this is bad:
 </db:para>
-      <db:programlisting xml:space="preserve" role="bad_code" language="perl"># Bad code
+      <db:programlisting role="bad_code" language="perl"># Bad code
 
 
 # This is file person.pm
@@ -540,7 +540,7 @@ use warnings;
       <db:para>
 And this would be better:
 </db:para>
-      <db:programlisting xml:space="preserve" language="perl">
+      <db:programlisting language="perl">
 # Better code!
 # This is file MyProject/Person.pm
 package MyProject::Person;
@@ -560,7 +560,7 @@ use warnings;
 Don't use the so-called “Indirect-object notation” which can be seen in a lot
 of old code and tutorials and is more prone to errors:
 </db:para>
-      <db:programlisting xml:space="preserve" role="bad_code" language="perl"># Bad code
+      <db:programlisting role="bad_code" language="perl"># Bad code
 
 
 my $new_object = new MyClass @params;
@@ -568,7 +568,7 @@ my $new_object = new MyClass @params;
       <db:para>
 Instead use the <db:code>MyClass-&gt;new(…)</db:code> notation:
 </db:para>
-      <db:programlisting xml:space="preserve" language="perl">
+      <db:programlisting language="perl">
 my $new_object = MyClass-&gt;new(@params);
 </db:programlisting>
       <db:para>
@@ -596,7 +596,7 @@ hash references - <db:code>$myhash_ref-&gt;{$key}</db:code>.
 Some beginners to Perl tend to use C-style-for-loops to loop over an array's
 elements:
 </db:para>
-      <db:programlisting xml:space="preserve" language="perl">
+      <db:programlisting language="perl">
 for (my $i=0 ; $i &lt; @array ; $i++)
 {
     # Do something with $array[$i]
@@ -605,7 +605,7 @@ for (my $i=0 ; $i &lt; @array ; $i++)
       <db:para>
 However, iterating over the array itself would normally be preferable:
 </db:para>
-      <db:programlisting xml:space="preserve" language="perl">
+      <db:programlisting language="perl">
 foreach my $elem (@array)
 {
     # Do something with $elem.
@@ -614,7 +614,7 @@ foreach my $elem (@array)
       <db:para>
 If you still need the index, do:
 </db:para>
-      <db:programlisting xml:space="preserve" language="perl">
+      <db:programlisting language="perl">
 foreach my $idx (0 .. $#array)
 {
     my $elem = $array[$idx];
@@ -672,7 +672,7 @@ available on CPAN</db:link>, which may prove of use.
 Since <db:link xlink:href="../../topics/object-oriented/">Perl objects</db:link> are simple
 references some programmers are tempted to access them directly:
 </db:para>
-      <db:programlisting xml:space="preserve" role="bad_code" language="perl"># Bad code
+      <db:programlisting role="bad_code" language="perl"># Bad code
 
 
 $self-&gt;{'name'} = "John";
@@ -687,7 +687,7 @@ Perl
 for Newbies section about "Accessors"</db:link>, and one should use accessors
 using code like that:
 </db:para>
-      <db:programlisting xml:space="preserve" language="perl">
+      <db:programlisting language="perl">
 # Good code.
 $self-&gt;_name("John");
 print "I am ", $self-&gt;_age(), " years old\n";
@@ -719,7 +719,7 @@ Your code should not include <db:link xlink:href="http://en.wikipedia.org/wiki/M
 numerical constants also known as "magic numbers" or "magic constants"</db:link>.
 For example, there is one in this code to shuffle a deck of cards:
 </db:para>
-      <db:programlisting xml:space="preserve" role="bad_code" language="perl"># Bad code
+      <db:programlisting role="bad_code" language="perl"># Bad code
 
 
 for my $i (0 .. 51)
@@ -732,7 +732,7 @@ for my $i (0 .. 51)
 This code is bad because the meaning of 52 and 51 is not explained and they
 are arbitrary. A better code would be:
 </db:para>
-      <db:programlisting xml:space="preserve" language="perl">
+      <db:programlisting language="perl">
 # Good code.
 # One of:
 my $deck_size = 52;
@@ -755,7 +755,7 @@ but this is just for the sake of demonstration.).
       <db:para>
 One can sometimes see people write code like that:
 </db:para>
-      <db:programlisting xml:space="preserve" role="bad_code" language="perl"># Bad code
+      <db:programlisting role="bad_code" language="perl"># Bad code
 
 
 my $name = shift(@ARGV);
@@ -770,7 +770,7 @@ However, it's not necessary to enclose $name in double quotes (i.e:
 <db:code>"$name"</db:code>) because it's already a string. Using it by itself as
 <db:code>$name</db:code> will do just fine:
 </db:para>
-      <db:programlisting xml:space="preserve" language="perl">
+      <db:programlisting language="perl">
 # Better code.
 my $name = shift(@ARGV);
 print $name, "\n";
@@ -815,7 +815,7 @@ because there are built-in-variables called that used for
 <db:link role="cpan_module" xlink:href="http://metacpan.org/module/List::Util">List::Util</db:link>), which the lexical variables will interfere
 with:
 </db:para>
-      <db:programlisting xml:space="preserve" role="bad_code" language="perl"># Bad code
+      <db:programlisting role="bad_code" language="perl"># Bad code
 
 
 my ($a, $b) = @ARGV;
@@ -844,7 +844,7 @@ the code to insert a loop in between the innermost loop and the flow control
 statement, which will break the code. So always append a label to "next",
 "last" and "redo" and label your loops accordingly:
 </db:para>
-      <db:programlisting xml:space="preserve" language="perl">
+      <db:programlisting language="perl">
 LINES:
 while (my $line = &lt;&gt;)
 {
@@ -864,7 +864,7 @@ The <db:code>$#array</db:code> notation gives the last index in <db:code>@array<
 is always equal to the array length minus one. Some people use it to signify
 the length of the array:
 </db:para>
-      <db:programlisting xml:space="preserve" role="bad_code" language="perl"># Bad code
+      <db:programlisting role="bad_code" language="perl"># Bad code
 
 
 my @flags = ((0) x ($#names +1))
@@ -873,7 +873,7 @@ my @flags = ((0) x ($#names +1))
 However this is unnecessary because one can better do it by evaluating
 <db:code>@names</db:code> in scalar context, possibly by saying <db:code>scalar(@names)</db:code>.
 </db:para>
-      <db:programlisting xml:space="preserve" language="perl">
+      <db:programlisting language="perl">
 # Better code.
 my @flags = ((0) x @names);
 </db:programlisting>
@@ -898,7 +898,7 @@ negative indexes. <db:code>$array[-1]</db:code> is the last element of the array
       <db:para>
 One can often see people interpolate strings directly into regular expressions:
 </db:para>
-      <db:programlisting xml:space="preserve" role="bad_code" language="perl"># Bad code
+      <db:programlisting role="bad_code" language="perl"># Bad code
 
 
 my $username = shift(@ARGV);
@@ -973,7 +973,7 @@ code.
 Some people are tempted to use backticks (<db:code>`…`</db:code>) or <db:code>qx/…/</db:code>
 for executing commands for their side-effects. E.g:
 </db:para>
-      <db:programlisting xml:space="preserve" role="bad_code" language="perl"># Bad code
+      <db:programlisting role="bad_code" language="perl"># Bad code
 
 
 use strict;
@@ -1043,7 +1043,7 @@ underscores, that can be thought of as "private" ones.
       <db:para>
 Here's an example:
 </db:para>
-      <db:programlisting xml:space="preserve" language="perl">
+      <db:programlisting language="perl">
 package Math::SumOfSquares;
 use strict;
 use warnings;
@@ -1081,7 +1081,7 @@ curly braces (so-called "dative block"). (Inspired by "Perl Best Practices").
       <db:para>
 One can write code while reading from STDIN:
 </db:para>
-      <db:programlisting xml:space="preserve" role="bad_code" language="perl"># Bad code
+      <db:programlisting role="bad_code" language="perl"># Bad code
 
 
 use strict;
@@ -1102,7 +1102,7 @@ However, it is usually better to use <db:code>ARGV</db:code> instead of <db:code
 because it also allows processing the filenames from the command line. This
 can also be achieved by simply saying <db:code>&lt;&gt;</db:code>. So the code becomes:
 </db:para>
-      <db:programlisting xml:space="preserve" language="perl">
+      <db:programlisting language="perl">
 # Better code:
 use strict;
 use warnings;
@@ -1209,7 +1209,7 @@ more information. (Inspired by "Perl Best Practices").
       <db:para>
 Sometimes you can see class constructors such as:
 </db:para>
-      <db:programlisting xml:space="preserve" role="bad_code" language="perl"># Bad code
+      <db:programlisting role="bad_code" language="perl"># Bad code
 
 
 sub new
@@ -1226,7 +1226,7 @@ The problem here is that this allows one to do
 but many people will expect it to be invalid or to clone the object. So don't
 do that and instead write your constructors as:
 </db:para>
-      <db:programlisting xml:space="preserve" language="perl">
+      <db:programlisting language="perl">
 # Better code:
 sub new
 {
@@ -1312,7 +1312,7 @@ You shouldn't be using <db:link role="perldoc_func" xlink:href="http://perldoc.p
 instead of foreach if you're not interested in constructing a new list and
 all you are interested in are the side-effects. For example:
 </db:para>
-      <db:programlisting xml:space="preserve" role="bad_code" language="perl"># Bad code
+      <db:programlisting role="bad_code" language="perl"># Bad code
 
 
 use strict;
@@ -1322,7 +1322,7 @@ map { print "Hello $_!\n"; } @ARGV;
       <db:para>
 Would be better written as:
 </db:para>
-      <db:programlisting xml:space="preserve" language="perl">
+      <db:programlisting language="perl">
 use strict;
 use warnings;
 foreach my $name (@ARGV)
@@ -1344,7 +1344,7 @@ inline- conditional operator (<db:code>? :</db:code>) for choosing to execute be
 two different statements with side-effects
 instead of using <db:code>if</db:code> and <db:code>else</db:code>. For example:
 </db:para>
-      <db:programlisting xml:space="preserve" role="bad_code" language="perl"># Bad code
+      <db:programlisting role="bad_code" language="perl"># Bad code
 
 
 $cond_var ? ($hash{'if_true'} .= "Cond var is true")
@@ -1359,7 +1359,7 @@ However, the ternary operator is meant to be an expression that is a choice
 between two values and should not be used for its side-effects. To do the
 latter, just use <db:code>if</db:code> and <db:code>else</db:code>:
 </db:para>
-      <db:programlisting xml:space="preserve" language="perl">
+      <db:programlisting language="perl">
 if ($cond_var)
 {
     $hash{'if_true'} .= "Cond var is true";
@@ -1387,7 +1387,7 @@ it in its entirety).
 One should not nest an inner top-level subroutine declared using
 <db:code>sub inner</db:code> inside of an outer one, like so:
 </db:para>
-      <db:programlisting xml:space="preserve" role="bad_code" language="perl"># Bad code
+      <db:programlisting role="bad_code" language="perl"># Bad code
 
 
 sub outer
@@ -1415,7 +1415,7 @@ The proper and safer way to declare an inner subroutine is to declare
 a lexical variable and set it to an anonymous subroutine, which is
 also known as a closure:
 </db:para>
-      <db:programlisting xml:space="preserve" language="perl">
+      <db:programlisting language="perl">
 sub outer
 {
     my ($foo, $bar) = @_;
@@ -1508,7 +1508,7 @@ Some inexperienced Perl programmers, possibly by influence from languages
 such as C, like to declare all variables used by the program at the top of
 the program or the relevant subroutines. Like so:
 </db:para>
-      <db:programlisting xml:space="preserve" role="bad_code" language="perl"># Bad code
+      <db:programlisting role="bad_code" language="perl"># Bad code
 
 
 my $first_name;
@@ -1575,7 +1575,7 @@ had <db:link xlink:href="http://thedailywtf.com/Articles/The_UNIX_Philosophy.asp
 feature</db:link> which featured the following code to determine the file size
 in Perl:
 </db:para>
-      <db:programlisting xml:space="preserve" role="bad_code" language="perl"># Bad code
+      <db:programlisting role="bad_code" language="perl"># Bad code
 
 
 my $filesize = `wc -c $file | cut -c0-8 | sed 's/ //g'`;
@@ -1599,7 +1599,7 @@ implement it in pure-Perl code.
 The perl interpreter allows one to omit the last trailing semicolon (";") in
 the containing block. Like so:
 </db:para>
-      <db:programlisting xml:space="preserve" role="bad_code" language="perl"># Bad code
+      <db:programlisting role="bad_code" language="perl"># Bad code
 
 
 if ( COND() )
@@ -1632,7 +1632,7 @@ only one argument to them, they pass it to the shell verbatim.
       <db:para>
 As a result, if one passes an array variable to them, as in:
 </db:para>
-      <db:programlisting xml:space="preserve" role="bad_code" language="perl"># Bad code
+      <db:programlisting role="bad_code" language="perl"># Bad code
 
 
 open my $fh, '-|', @foo
@@ -1708,7 +1708,7 @@ If you're defining interfaces that accept a flattened hash or a hash reference
 of named parameters, there is no need to call the parameters with keys starting
 with a dash, like so:
 </db:para>
-      <db:programlisting xml:space="preserve" role="bad_code" language="perl"># Bad code
+      <db:programlisting role="bad_code" language="perl"># Bad code
 
 
 my $obj = MyClass-&gt;new(
@@ -1730,7 +1730,7 @@ more modern modules.
       <db:para>
 Instead, design your interfaces with calling conventions like so:
 </db:para>
-      <db:programlisting xml:space="preserve" language="perl">
+      <db:programlisting language="perl">
 my $obj = MyClass-&gt;new(
     {
         name =&gt; "George",
@@ -1795,7 +1795,7 @@ constructor (<db:code>[ … ]</db:code>) to initialise array variables, or alter
 anonymous hash references (<db:code>{ … }</db:code>) to initialise hash variables, like
 so:
 </db:para>
-      <db:programlisting xml:space="preserve" role="bad_code" language="perl"># Bad code
+      <db:programlisting role="bad_code" language="perl"># Bad code
 
 
 my @arr = [1 .. 10];
@@ -1812,7 +1812,7 @@ to a nonsensical string).
 Array and hash variables should be initialized using lists enclosed in
 parentheses:
 </db:para>
-      <db:programlisting xml:space="preserve" language="perl">
+      <db:programlisting language="perl">
 my @arr = (1 .. 100);
 my %uk_info = ( continent =&gt; "Europe", capital =&gt; "London", );
 </db:programlisting>
@@ -1851,7 +1851,7 @@ in list context will normally return the two special entries of <db:filename>.</
 be checked, and should normally be ignored. One can often find that people
 are trying to skip them in various sub-optimal ways:
 </db:para>
-      <db:programlisting xml:space="preserve" role="bad_code" language="perl"># Bad code
+      <db:programlisting role="bad_code" language="perl"># Bad code
 
 
 if ($dir_entry =~ m/\A\./) # Will skip all directories that start with dot.
@@ -1864,7 +1864,7 @@ if ($dir_entry eq "." or $dir_entry eq "..") # May not be portable.
 The best way to do that is to use <db:link role="cpan_module" xlink:href="http://metacpan.org/module/File::Spec">File::Spec</db:link>’s
 <db:code>no_upwards()</db:code> function:
 </db:para>
-      <db:programlisting xml:space="preserve" language="perl">
+      <db:programlisting language="perl">
 foreach my $entry (File::Spec-&gt;no_upwards(readdir($dir_handle))
 {
 }
@@ -1883,7 +1883,7 @@ similar functionality.
 Normally, assigning from a function or an expression that returns a list
 to a scalar variable, will not yield what you want:
 </db:para>
-      <db:programlisting xml:space="preserve" role="bad_code" language="perl"># Bad code
+      <db:programlisting role="bad_code" language="perl"># Bad code
 
 
 my $characters = split(//, $string);
@@ -1893,7 +1893,7 @@ This will cause the list as returned by split to be evaluated in scalar
 context, and to return a single (and not very meaningful) scalar item.
 You normally want one of those:
 </db:para>
-      <db:programlisting xml:space="preserve" language="perl">
+      <db:programlisting language="perl">
 my @characters = split(//, $string);
 my $chars_aref = [ split(//, $string) ];
 my $num_chars = () = split(//, $string); \# Use length instead in this case.
@@ -1955,7 +1955,7 @@ File::Find and friends should be reserved for a recursive traversal.
       <db:para>
 You can sometimes see code like that:
 </db:para>
-      <db:programlisting xml:space="preserve" role="bad_code" language="perl"># Bad code
+      <db:programlisting role="bad_code" language="perl"># Bad code
 
 
 my @array_of_arrays = ([]) x $num_rows;
@@ -1963,7 +1963,7 @@ my @array_of_arrays = ([]) x $num_rows;
       <db:para>
 Or:
 </db:para>
-      <db:programlisting xml:space="preserve" role="bad_code" language="perl"># Bad code
+      <db:programlisting role="bad_code" language="perl"># Bad code
 
 
 my @row;
@@ -1983,11 +1983,11 @@ always be synchronised to the same contents.
       <db:para>
 As a result, the two code excerpts should be written as such instead:
 </db:para>
-      <db:programlisting xml:space="preserve" language="perl">
+      <db:programlisting language="perl">
 my @array_of_arrays = map { [] } (1 .. $num_rows);
 </db:programlisting>
       <db:para>And:</db:para>
-      <db:programlisting xml:space="preserve" language="perl">
+      <db:programlisting language="perl">
 my @array_of_rows;
 foreach my $elem (@existing_array)
 {
@@ -1998,7 +1998,7 @@ foreach my $elem (@existing_array)
       <db:para>
 Or alternatively:
 </db:para>
-      <db:programlisting xml:space="preserve" language="perl">
+      <db:programlisting language="perl">
 my @array_of_rows;
 foreach my $elem (@existing_array)
 {
@@ -2014,7 +2014,7 @@ foreach my $elem (@existing_array)
 It is not a good idea to append a trailing if statement modifier to a
 declaration of a lexical variable using <db:code>my</db:code>:
 </db:para>
-      <db:programlisting xml:space="preserve" role="bad_code" language="perl"># Bad code
+      <db:programlisting role="bad_code" language="perl"># Bad code
 
 
 my $var = VALUE() if (COND());
@@ -2025,7 +2025,7 @@ This code might compile and appear to run but you probably want to declare
 a lexical variable for the rest of its scope. If you need to assign to it
 conditionally, then do it in a separate statement:
 </db:para>
-      <db:programlisting xml:space="preserve" language="perl">
+      <db:programlisting language="perl">
 my $var;
 if (COND())
 {
@@ -2055,7 +2055,7 @@ etc. While this may work, the backslash-digits variables are aimed at
 back-references, such as matching the exact string of a capture again within
 the left hand side of a regular expression:
 </db:para>
-      <db:programlisting xml:space="preserve" role="bad_code" language="perl"># Bad code
+      <db:programlisting role="bad_code" language="perl"># Bad code
 
 
 $s =~ s/(H\w+)\s+(W\w+)/\1 [=] \2/;
@@ -2063,7 +2063,7 @@ $s =~ s/(H\w+)\s+(W\w+)/\1 [=] \2/;
       <db:para>
 Better code:
 </db:para>
-      <db:programlisting xml:space="preserve" language="perl">
+      <db:programlisting language="perl">
 $s =~ s/(H\w+)\s+(W\w+)/$1 [=] $2/;
 </db:programlisting>
     </db:section>
