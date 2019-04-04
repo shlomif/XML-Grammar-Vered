@@ -14,18 +14,17 @@ use XML::GrammarBase::Role::XSLT v0.2.2;
 
 our $VERSION = 'v0.0.9';
 
-with ('XML::GrammarBase::Role::RelaxNG');
-with XSLT(output_format => 'docbook');
+with('XML::GrammarBase::Role::RelaxNG');
+with XSLT( output_format => 'docbook' );
 
-has '+module_base' => (default => 'XML-Grammar-Vered');
-has '+rng_schema_basename' => (default => 'vered-xml.rng');
-
+has '+module_base'         => ( default => 'XML-Grammar-Vered' );
+has '+rng_schema_basename' => ( default => 'vered-xml.rng' );
 
 has '+to_docbook_xslt_transform_basename' =>
-    (default => 'vered-xml-to-docbook.xslt');
+    ( default => 'vered-xml-to-docbook.xslt' );
 
-has '_mode' => (is => 'rw', init_arg => 'mode');
-has '_output_mode' => (is => 'rw', init_arg => 'output_mode',);
+has '_mode'        => ( is => 'rw', init_arg => 'mode' );
+has '_output_mode' => ( is => 'rw', init_arg => 'output_mode', );
 
 1;
 
