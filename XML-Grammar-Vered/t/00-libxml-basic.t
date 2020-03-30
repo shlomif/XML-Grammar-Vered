@@ -31,5 +31,5 @@ if (
 diag(
     "\n\nCompiled against libxml2 version: ",
     XML::LibXML::LIBXML_VERSION, "\nRunning libxml2 version:          ",
-    $runtime_version, "\n\n"
+    $runtime_version,            "\n\n"
 );
