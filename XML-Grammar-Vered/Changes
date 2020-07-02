@@ -1,5 +1,10 @@
 Revision history for XML-Grammar-Vered
 
+0.0.12      2020-07-02
+    - Remove mismatching $VERSION from lib/XML/Grammar/Vered.pm .
+        - From the "I'm still an idiot" department.
+        - "We're lame but optimistic".
+
 0.0.11      2020-07-02
     - Remove the obnoxius libxml version matching tests.
         - I was an idiot.
