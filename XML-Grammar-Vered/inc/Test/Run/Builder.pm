@@ -71,7 +71,7 @@ sub ACTION_tags
             --exclude=blib/ --exclude=t/lib
             --exclude=.svn --exclude='*~'
             --languages=Perl --langmap=Perl:+.t
-            )
+        )
     );
 }
 
