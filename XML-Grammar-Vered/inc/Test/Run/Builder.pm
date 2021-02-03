@@ -3,11 +3,7 @@ package Test::Run::Builder;
 use strict;
 use warnings;
 
-use Module::Build;
-
-use vars qw(@ISA);
-
-@ISA = (qw(Module::Build));
+use parent 'Module::Build';
 
 sub ACTION_runtest
 {
@@ -80,4 +76,3 @@ sub ACTION_tags
 }
 
 1;
-
