@@ -26,17 +26,6 @@
         </db:para>
     </db:legalnotice>
 
-    <db:revhistory>
-
-        <db:revision>
-            <db:revnumber>4902</db:revnumber>
-            <db:date>2011-06-05</db:date>
-            <db:authorinitials>shlomif</db:authorinitials>
-            <db:revremark>
-                Change ASCII double quotes and single quotes to Unicode.
-            </db:revremark>
-        </db:revision>
-    </db:revhistory>
   </db:info>
   <db:section role="introduction" xml:id="intro">
     <db:info>

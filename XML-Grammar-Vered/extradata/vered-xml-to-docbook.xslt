@@ -93,18 +93,6 @@
             </para>
         </legalnotice>
 
-        <revhistory>
-
-            <revision>
-                <revnumber>4902</revnumber>
-                <date>2011-06-05</date>
-                <authorinitials>shlomif</authorinitials>
-                <revremark>
-                    Change ASCII double quotes and single quotes to Unicode.
-                </revremark>
-            </revision>
-        </revhistory>
-
         </info>
         <xsl:apply-templates select="vrd:body/vrd:preface" />
         <xsl:apply-templates select="vrd:body/vrd:section" />
