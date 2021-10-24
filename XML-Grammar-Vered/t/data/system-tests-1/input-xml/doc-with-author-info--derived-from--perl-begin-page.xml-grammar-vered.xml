@@ -3,7 +3,7 @@
 <info>
 <title>Perl Elements to Avoid</title>
 <author><personname><firstname>Shlomi</firstname><surname>Fish</surname></personname><email>shlomif@cpan.org</email></author>
-<copyright><year>2019</year></copyright>
+<copyright><year>2019</year><holder>Shlomi Fish</holder></copyright>
 </info>
 <body>
 <preface xml:id="intro">

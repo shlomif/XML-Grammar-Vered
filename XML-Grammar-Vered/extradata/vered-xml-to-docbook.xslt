@@ -76,7 +76,16 @@
                     </xsl:otherwise>
                 </xsl:choose>
             </year>
-            <holder>Unknown</holder>
+            <holder>
+                <xsl:choose>
+                    <xsl:when test="vrd:info/vrd:copyright/vrd:holder">
+                        <xsl:value-of select="vrd:info/vrd:copyright/vrd:holder" />
+                    </xsl:when>
+                    <xsl:otherwise>
+                        Unknown
+                    </xsl:otherwise>
+                </xsl:choose>
+            </holder>
         </copyright>
         <legalnotice xml:id="main_legal_notice">
             <para>

@@ -257,6 +257,9 @@
                 <element name="vrd:year">
                     <text/>
                 </element>
+                <element name="vrd:holder">
+                    <text/>
+                </element>
                 </element>
             </optional>
         </element>
