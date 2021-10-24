@@ -32,7 +32,7 @@
                                     <xsl:value-of select="vrd:info/vrd:author/vrd:personname/vrd:firstname" />
                                 </xsl:when>
                                 <xsl:otherwise>
-                                    Unknown
+                                    <xsl:text>Unknown</xsl:text>
                                 </xsl:otherwise>
                             </xsl:choose>
                         </firstname>
@@ -42,7 +42,7 @@
                                     <xsl:value-of select="vrd:info/vrd:author/vrd:personname/vrd:surname" />
                                 </xsl:when>
                                 <xsl:otherwise>
-                                    Unknown
+                                    <xsl:text>Unknown</xsl:text>
                                 </xsl:otherwise>
                             </xsl:choose>
                         </surname>
@@ -55,7 +55,7 @@
                                         <xsl:value-of select="vrd:info/vrd:author/vrd:email" />
                                     </xsl:when>
                                     <xsl:otherwise>
-                                        me@example.com
+                                        <xsl:text>me@example.com</xsl:text>
                                     </xsl:otherwise>
                                 </xsl:choose>
                             </email>
@@ -82,7 +82,7 @@
                         <xsl:value-of select="vrd:info/vrd:copyright/vrd:year" />
                     </xsl:when>
                     <xsl:otherwise>
-                        2021
+                        <xsl:text>2021</xsl:text>
                     </xsl:otherwise>
                 </xsl:choose>
             </year>
@@ -92,7 +92,7 @@
                         <xsl:value-of select="vrd:info/vrd:copyright/vrd:holder" />
                     </xsl:when>
                     <xsl:otherwise>
-                        Unknown
+                        <xsl:text>Unknown</xsl:text>
                     </xsl:otherwise>
                 </xsl:choose>
             </holder>
