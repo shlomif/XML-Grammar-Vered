@@ -10,7 +10,7 @@
             </db:personname>
             <db:affiliation>
                 <db:address>
-                    <db:email>me@example.com</db:email>
+                    <db:email>shlomif@cpan.org</db:email>
                     <db:uri type="homepage" xlink:href="https://www.shlomifish.org/">Shlomi Fish’s Homepage</db:uri>
                 </db:address>
             </db:affiliation>

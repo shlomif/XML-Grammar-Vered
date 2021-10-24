@@ -49,7 +49,16 @@
                     </personname>
                     <affiliation>
                         <address>
-                            <email>me@example.com</email>
+                            <email>
+                                <xsl:choose>
+                                    <xsl:when test="vrd:info/vrd:author/vrd:email">
+                                        <xsl:value-of select="vrd:info/vrd:author/vrd:email" />
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        me@example.com
+                                    </xsl:otherwise>
+                                </xsl:choose>
+                            </email>
                             <uri type="homepage" xlink:href="https://www.shlomifish.org/">Shlomi Fish’s Homepage</uri>
                         </address>
                     </affiliation>

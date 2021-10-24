@@ -247,6 +247,9 @@
                     <text/>
                 </element>
                 </element>
+                <element name="vrd:email">
+                    <text/>
+                </element>
                 </element>
             </optional>
         </element>
