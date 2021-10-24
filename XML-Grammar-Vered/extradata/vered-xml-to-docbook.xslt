@@ -98,9 +98,16 @@
             </holder>
         </copyright>
         <legalnotice xml:id="main_legal_notice">
-            <para>
-                This document is copyrighted by Unknown.
-            </para>
+            <xsl:choose>
+                <xsl:when test="vrd:info/vrd:legalnotice">
+                    <xsl:apply-templates select="vrd:info/vrd:legalnotice/*" />
+                </xsl:when>
+                <xsl:otherwise>
+                    <para>
+                        This document is copyrighted by Unknown.
+                    </para>
+                </xsl:otherwise>
+            </xsl:choose>
         </legalnotice>
 
         </info>

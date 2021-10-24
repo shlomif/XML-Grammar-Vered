@@ -273,6 +273,11 @@
                 </element>
                 </element>
             </optional>
+            <optional>
+            <element name="vrd:legalnotice">
+            <ref name="several_paras" />
+            </element>
+            </optional>
         </element>
     </define>
 </grammar>
