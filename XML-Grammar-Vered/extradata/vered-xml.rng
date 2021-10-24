@@ -250,6 +250,17 @@
                 <element name="vrd:email">
                     <text/>
                 </element>
+                <optional>
+                <element name="vrd:uri">
+                    <attribute name="type">
+                    <text/>
+                    </attribute>
+                    <attribute name="xlink:href">
+                    <text/>
+                    </attribute>
+                    <text/>
+                </element>
+                </optional>
                 </element>
             </optional>
             <optional>

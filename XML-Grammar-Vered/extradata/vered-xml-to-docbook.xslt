@@ -59,7 +59,17 @@
                                     </xsl:otherwise>
                                 </xsl:choose>
                             </email>
-                            <uri type="homepage" xlink:href="https://www.shlomifish.org/">Shlomi Fish’s Homepage</uri>
+                            <xsl:if test="vrd:info/vrd:author/vrd:uri[@type='homepage']">
+                                <uri>
+                                    <xsl:attribute name="type">
+                                        <xsl:text>homepage</xsl:text>
+                                    </xsl:attribute>
+                                    <xsl:attribute name="xlink:href">
+                                        <xsl:value-of select="vrd:info/vrd:author/vrd:uri[@type='homepage']/@xlink:href"/>
+                                    </xsl:attribute>
+                                    <xsl:value-of select="vrd:info/vrd:author/vrd:uri[@type='homepage']/text()"/>
+                                </uri>
+                            </xsl:if>
                         </address>
                     </affiliation>
                 </author>
