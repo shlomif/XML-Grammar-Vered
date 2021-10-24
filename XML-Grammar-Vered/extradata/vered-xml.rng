@@ -237,6 +237,18 @@
     <define name="info">
         <element name="vrd:info">
             <ref name="title" />
+            <optional>
+                <element name="vrd:author">
+                <element name="vrd:personname">
+                <element name="vrd:firstname">
+                    <text/>
+                </element>
+                <element name="vrd:surname">
+                    <text/>
+                </element>
+                </element>
+                </element>
+            </optional>
         </element>
     </define>
 </grammar>

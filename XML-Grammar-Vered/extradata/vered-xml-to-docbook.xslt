@@ -26,8 +26,26 @@
             <authorgroup>
                 <author>
                     <personname>
-                        <firstname>Unknown</firstname>
-                        <surname>Unknown</surname>
+                        <firstname>
+                            <xsl:choose>
+                                <xsl:when test="vrd:info/vrd:author/vrd:personname/vrd:firstname">
+                                    <xsl:value-of select="vrd:info/vrd:author/vrd:personname/vrd:firstname" />
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    Unknown
+                                </xsl:otherwise>
+                            </xsl:choose>
+                        </firstname>
+                        <surname>
+                            <xsl:choose>
+                                <xsl:when test="vrd:info/vrd:author/vrd:personname/vrd:surname">
+                                    <xsl:value-of select="vrd:info/vrd:author/vrd:personname/vrd:surname" />
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    Unknown
+                                </xsl:otherwise>
+                            </xsl:choose>
+                        </surname>
                     </personname>
                     <affiliation>
                         <address>
