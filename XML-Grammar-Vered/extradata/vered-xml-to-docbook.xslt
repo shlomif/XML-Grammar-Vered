@@ -66,7 +66,16 @@
              </authorgroup>
 
         <copyright>
-             <year>2021</year>
+            <year>
+                <xsl:choose>
+                    <xsl:when test="vrd:info/vrd:copyright/vrd:year">
+                        <xsl:value-of select="vrd:info/vrd:copyright/vrd:year" />
+                    </xsl:when>
+                    <xsl:otherwise>
+                        2021
+                    </xsl:otherwise>
+                </xsl:choose>
+            </year>
             <holder>Unknown</holder>
         </copyright>
         <legalnotice xml:id="main_legal_notice">

@@ -252,6 +252,13 @@
                 </element>
                 </element>
             </optional>
+            <optional>
+                <element name="vrd:copyright">
+                <element name="vrd:year">
+                    <text/>
+                </element>
+                </element>
+            </optional>
         </element>
     </define>
 </grammar>
